@@ -61,6 +61,34 @@ def monthlyWage(wage_per_hour, work_hour, working_days):
     """
     return wage_per_hour*work_hour*working_days
 
+def wageCondition(wage_per_hour, full_time_work_hour, part_time_work_hour, working_days):
+    """Description: 
+        Function to calculate the monthly wage of an Employee.
+    Parameters:
+        wage_per_hour: Rate per hour for work.
+        full_time_work_hour: Hours worked for full-time.
+        part_time_work_hour: Hours worked for part-time.
+        working_days: Total working days for the employee.
+    Returns:
+        int: Monthly wage.
+    """
+    total_hours = 0
+    total_wage = 0
+    for i in range(1,21):
+        if(attendance_check()==0):
+            total_wage  = total_wage+0
+        elif attendance_check() ==1:
+            total_wage = total_wage+ full_time_work_hour*wage_per_hour
+            total_hours = total_hours+full_time_work_hour
+            if(total_hours>=100):
+                break
+        else:
+            total_wage = total_wage+ part_time_work_hour*wage_per_hour
+            total_hours = total_hours+part_time_work_hour
+            if (total_hours>=100):
+                break
+    return total_wage
+
 
 def main():
     name = input("Enter the name: ")
@@ -80,6 +108,7 @@ def main():
         logger.info(f"Daily wage of Part Time Employee is {dailyWage(wage_per_hour,part_time_work)}")
     logger.info(f"Monthly wage of Full Time Employee is {monthlyWage(wage_per_hour,fulltime_work,working_days)}")
     logger.info(f"Monthly wage of Part Time Employee is {monthlyWage(wage_per_hour,part_time_work,working_days)}")
+    logger.info(f"Total wage earned by Employee is  {wageCondition(wage_per_hour,fulltime_work,part_time_work,working_days)}")
 
 if __name__ == "__main__":
     main()
