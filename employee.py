@@ -49,6 +49,19 @@ def dailyWage(wage_per_hour, work_hour):
     return wage_per_hour*work_hour
     
 
+def monthlyWage(wage_per_hour, work_hour, working_days):
+    """Description: 
+        Function to calculate monthly wage of Employee
+    Parameters:
+        wage_per_hour: takes the rate per hour for work
+        work_hour: Total work hour
+        working_days: total working days for employee
+    Returns:
+        Monthly Wage
+    """
+    return wage_per_hour*work_hour*working_days
+
+
 def main():
     name = input("Enter the name: ")
     logger.info(welcome(name))
@@ -56,6 +69,7 @@ def main():
     wage_per_hour = 20
     fulltime_work = 8
     part_time_work = 4
+    working_days = 20
     if(attendance==0):
         logger.info("Absent")
     elif attendance==1:
@@ -64,7 +78,8 @@ def main():
     else:
         logger.info("Present")
         logger.info(f"Daily wage of Part Time Employee is {dailyWage(wage_per_hour,part_time_work)}")
-    
+    logger.info(f"Monthly wage of Full Time Employee is {monthlyWage(wage_per_hour,fulltime_work,working_days)}")
+    logger.info(f"Monthly wage of Part Time Employee is {monthlyWage(wage_per_hour,part_time_work,working_days)}")
 
 if __name__ == "__main__":
     main()
