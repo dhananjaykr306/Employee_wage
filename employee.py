@@ -35,6 +35,7 @@ def attendance_check():
         return "Present"
     else:
         return "Absent"
+        
 
 def dailyWage(wage_per_hour, work_hour):
     """Description: 
