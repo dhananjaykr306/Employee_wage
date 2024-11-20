@@ -46,6 +46,7 @@ def dailyWage(wage_per_hour, work_hour):
         Daily Wage
     """
     return wage_per_hour*work_hour
+    
 
 def main():
     name = input("Enter the name: ")
