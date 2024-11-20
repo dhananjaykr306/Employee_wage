@@ -36,12 +36,25 @@ def attendance_check():
     else:
         return "Absent"
 
+def dailyEmployeeWage():
+    """Description: 
+        Function to calculate daily wage of Employee
+    Parameters:
+        None
+    Returns:
+        Daily Wage
+    """
+    wage_per_hour=20
+    Full_day_hour=8
+    return wage_per_hour*Full_day_hour
+
 def main():
     name = input("Enter the name: ")
     welcome_message = welcome(name)
     logger.info(welcome_message)  # Log the welcome message
     attendance = attendance_check()
     logger.info(f"Attendance: {attendance}")  # Log the attendance status
+    logger.info(f"Daily Wage: {dailyEmployeeWage()}")  # Log the daily wage
 
 if __name__ == "__main__":
     main()
